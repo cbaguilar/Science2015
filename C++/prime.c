@@ -2,15 +2,15 @@
 #include <stdio.h>
 #include <sys/time.h>
 #include <ctime>
+#include  <cstdlib>
 using namespace std;
 
 //program for calculating to the nth prime number
 
-int main(){
+int main(int nargs, char *args[]){
 	
 	struct timeval stop, start;
 	gettimeofday(&start,NULL);
-
 	double curnum = 2.0;
 	double curdiv = 2.0;
 	/*
@@ -20,32 +20,32 @@ int main(){
 	int rnd;
 	double dbl;
 
-	for (int i = 0; i < 1000;){ 	//specify exactly how many primes to find.
-		
+	if (nargs == 1){
+	cout << "Needs 1 argument" << endl;
+	return 0;
+	}
+
+	for (int i = 0; i < atoi(args[1]);){ 	//specify exactly how many primes to find.
 		curdiv  = 2;
-		while (curdiv!= curnum){
-			
+
+		while (curdiv!=curnum){
 			rnd = curnum/curdiv;
 			dbl =  curnum/curdiv;
 
 			if (rnd == dbl){
 				break;
 			}
-			
 			curdiv++;
 		}
-		
+
 		if (curnum == curdiv){
 			cout << curnum << endl;
 			i++;
 		}
-		
 		curnum++;
 	}
-	
 	gettimeofday(&stop,NULL);
-	long elapsed = stop.tv_usec - start.tv_usec;
+	long long elapsed = stop.tv_usec - start.tv_usec;
 	cout << elapsed << endl;
-	double dl = 1/3;
 	return 0;
 }
