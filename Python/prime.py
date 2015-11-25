@@ -2,12 +2,32 @@
 
 
 #prime number finder in python
+import time
+import sys
+start = time.time()
+curnum = 2
+curdiv = 2
 
-import datetime as dt
-start = dt.datetime.now()
-rnd = 2;
-dbl = 2.0;
-for x in range(1,10):
-	int curdiv =2;
-	while rnd
+dbl = 2.0
+rnd = 2
+
+primes = 0
+while primes < int(sys.argv[1]):
+	curdiv =2;
+	while not (curdiv == curnum):
+		rnd = curnum/curdiv
+		dbl = float(curnum)/curdiv
+		
+		if (rnd == dbl):
+			break
+		curdiv+=1
+		
+	if (curnum == curdiv):
+		print(curnum);
+		primes+=1
+	curnum+=1
+end = time.time()
+elapsed = end-start
+print(elapsed)
+	
 	
