@@ -45,7 +45,7 @@ int main(int nargs, char *args[]){
 		curnum++;
 	}
 	gettimeofday(&stop,NULL);
-	long long elapsed = stop.tv_usec - start.tv_usec;
+	long elapsed = (stop.tv_sec*1e6 + stop.tv_usec) - (start.tv_sec*1e6+start.tv_usec);
 	cout << elapsed << endl;
 	return 0;
 }
